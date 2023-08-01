@@ -436,7 +436,14 @@ resource "autocloud_blueprint" "this" {
       namespace   = data.autocloud_blueprint_config.complete.variables["namespace"]
       environment = data.autocloud_blueprint_config.complete.variables["environment"]
       name        = data.autocloud_blueprint_config.complete.variables["name"]
+
+      module_reference = autocloud_module.kms_key.outputs.keys
     }
+
+    ###
+    # Add version requirements and provider configuration to the top of the output file. See ./files/provider_config.hcl.tpl
+    # for content to be added.
+    header = file("./files/provider_config.hcl.tpl")
 
     modules = [
       autocloud_module.kms_key.name,

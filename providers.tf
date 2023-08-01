@@ -27,13 +27,3 @@ provider "autocloud" {
 
   # token = ""
 }
-
-
-
-provider "google" {
-  # By default, the Google Cloud provider will use whatever authentication mechanism is configured in your shell
-  # environment. See the offical Google Cloud provider documentation for details on how to configure Google CLoud
-  # access for Terraform:
-  #
-  # https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#authentication
-}
