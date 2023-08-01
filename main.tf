@@ -344,6 +344,19 @@ data "autocloud_blueprint_config" "bucket" {
       name        = "global.variables.name"
     }
   }
+
+  ###
+  # Set the bucket names
+  variable {
+    name  = "bucket.variables.names"
+    type  = "raw"
+    value = "[\"{{namespace}}-{{environment}}-{{name}}\"]"
+    variables = {
+      namespace   = "global.variables.namespace"
+      environment = "global.variables.environment"
+      name        = "global.variables.name"
+    }
+  }
 }
 
 
@@ -365,8 +378,6 @@ data "autocloud_blueprint_config" "complete" {
   ###
   # Hide variables from user
   omit_variables = [
-    # Global
-
     # KMS Key
     "kms_key.variables.project_id",
     "kms_key.variables.location",
@@ -376,7 +387,7 @@ data "autocloud_blueprint_config" "complete" {
     "bucket.variables.project_id",
     "bucket.variables.location",
     "bucket.variables.labels",
-
+    "bucket.variables.names",
     "bucket.variables.public_access_prevention",
   ]
 
