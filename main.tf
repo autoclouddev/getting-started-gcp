@@ -247,6 +247,11 @@ data "autocloud_blueprint_config" "kms_key" {
 resource "autocloud_module" "bucket" {
   name   = "bucket"
   source = "github.com/terraform-google-modules/terraform-google-cloud-storage?ref=v4.0.0"
+
+  footer = <<-EOT
+
+  depends_on = [google_kms_crypto_key_iam_binding.binding]
+  EOT
 }
 
 data "autocloud_blueprint_config" "bucket" {
