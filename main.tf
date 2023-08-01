@@ -186,27 +186,18 @@ data "autocloud_blueprint_config" "kms_key" {
   }
 
   omit_variables = [
-    # Global
-    "labels",
-    "location",
-    "project_id",
-
     # Use defaults in the module (don't collect)
-    "keys",
-    "prevent_destroy",
-    "purpose",
-    "set_owners_for",
-    "owners",
-    "set_encrypters_for",
-    "encrypters",
-    "set_decrypters_for",
-    "decrypters",
-    "key_rotation_period",
-    "key_algorithm",
-    "key_protection_level",
-
-    # Defined below
-    "keyring",
+    "kms.variables.prevent_destroy",
+    "kms.variables.purpose",
+    "kms.variables.set_owners_for",
+    "kms.variables.owners",
+    "kms.variables.set_encrypters_for",
+    "kms.variables.encrypters",
+    "kms.variables.set_decrypters_for",
+    "kms.variables.decrypters",
+    "kms.variables.key_rotation_period",
+    "kms.variables.key_algorithm",
+    "kms.variables.key_protection_level",
   ]
 
   ###
@@ -266,50 +257,39 @@ data "autocloud_blueprint_config" "bucket" {
   }
 
   omit_variables = [
-    # Global
-    "labels",
-    "location",
-    "project_id",
-
     # Use defaults in the module (don't collect)
-    "admins",
-    "bucket_admins",
-    "bucket_creators",
-    "bucket_hmac_key_admins",
-    "bucket_lifecycle_rules",
-    "bucket_policy_only",
-    "bucket_storage_admins",
-    "bucket_viewers",
-    "cors",
-    "creators",
-    "custom_placement_config",
-    "default_event_based_hold",
-    "folders",
-    "force_destroy",
-    "hmac_key_admins",
-    "hmac_service_accounts",
-    "lifecycle_rules",
-    "logging",
-    "names",
-    "prefix",
-    "randomize_suffix",
-    "retention_policy",
-    "set_admin_roles",
-    "set_creator_roles",
-    "set_hmac_access",
-    "set_hmac_key_admin_roles",
-    "set_storage_admin_roles",
-    "set_viewer_roles",
-    "storage_admins",
-    "storage_class",
-    "versioning",
-    "viewers",
-    "website",
-
-    # Defined below
-    "encryption_key_names",
-    "name",
-    "public_access_prevention",
+    "bucket.variables.admins",
+    "bucket.variables.bucket_admins",
+    "bucket.variables.bucket_creators",
+    "bucket.variables.bucket_hmac_key_admins",
+    "bucket.variables.bucket_lifecycle_rules",
+    "bucket.variables.bucket_policy_only",
+    "bucket.variables.bucket_storage_admins",
+    "bucket.variables.bucket_viewers",
+    "bucket.variables.cors",
+    "bucket.variables.creators",
+    "bucket.variables.custom_placement_config",
+    "bucket.variables.default_event_based_hold",
+    "bucket.variables.folders",
+    "bucket.variables.force_destroy",
+    "bucket.variables.hmac_key_admins",
+    "bucket.variables.hmac_service_accounts",
+    "bucket.variables.lifecycle_rules",
+    "bucket.variables.logging",
+    "bucket.variables.names",
+    "bucket.variables.prefix",
+    "bucket.variables.randomize_suffix",
+    "bucket.variables.retention_policy",
+    "bucket.variables.set_admin_roles",
+    "bucket.variables.set_creator_roles",
+    "bucket.variables.set_hmac_access",
+    "bucket.variables.set_hmac_key_admin_roles",
+    "bucket.variables.set_storage_admin_roles",
+    "bucket.variables.set_viewer_roles",
+    "bucket.variables.storage_admins",
+    "bucket.variables.storage_class",
+    "bucket.variables.viewers",
+    "bucket.variables.website",
   ]
 
   ###
