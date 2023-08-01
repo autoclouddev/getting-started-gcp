@@ -372,6 +372,19 @@ data "autocloud_blueprint_config" "bucket" {
       name        = "global.variables.name"
     }
   }
+
+  ###
+  # Enable versioning
+  variable {
+    name  = "bucket.variables.versioning"
+    type  = "raw"
+    value = "{ \"{{namespace}}-{{environment}}-{{name}}\" = true }"
+    variables = {
+      namespace   = "global.variables.namespace"
+      environment = "global.variables.environment"
+      name        = "global.variables.name"
+    }
+  }
 }
 
 
