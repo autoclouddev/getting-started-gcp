@@ -140,17 +140,21 @@ data "autocloud_blueprint_config" "gcp" {
 
     options {
       option {
-        label = "ASIA"
-        value = "ASIA"
+        label = "Asia"
+        value = "asia"
       }
       option {
         label = "EU"
-        value = "EU"
+        value = "europe"
       }
       option {
         label   = "US"
-        value   = "US"
+        value   = "us"
         checked = true
+      }
+      option {
+        label = "Worldwide"
+        value = "global"
       }
     }
   }
