@@ -235,6 +235,14 @@ data "autocloud_blueprint_config" "kms_key" {
       name        = "global.variables.name"
     }
   }
+
+  ###
+  # Set encyrption key
+  variable {
+    name  = "keys"
+    type  = "raw"
+    value = "[\"default\"]"
+  }
 }
 
 
@@ -321,7 +329,14 @@ data "autocloud_blueprint_config" "bucket" {
   # Set the KMS Keys
   variable {
     name  = "bucket.variables.encryption_key_names"
-    value = jsonencode([autocloud_module.kms_key.outputs.keyring_name])
+    type  = "raw"
+    value = "{ \"{{namespace}}-{{environment}}-{{name}}\" = {{keyring_name}}[\"default\"] }"
+    variables = {
+      namespace    = "global.variables.namespace"
+      environment  = "global.variables.environment"
+      name         = "global.variables.name"
+      keyring_name = autocloud_module.kms_key.outputs.keys
+    }
   }
 
   ###
