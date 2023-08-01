@@ -347,7 +347,7 @@ data "autocloud_blueprint_config" "bucket" {
   }
 
   ###
-  # Set the bucket name
+  # Show the bucket name
   variable {
     name         = "bucket.variables.name"
     display_name = "Storage Bucket Name"
