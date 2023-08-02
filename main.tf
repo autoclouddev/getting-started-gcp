@@ -121,11 +121,21 @@ data "autocloud_blueprint_config" "gcp" {
 
     type = "shortText"
 
-    value = "{{namespace}}-{{environment}}"
+    ###
+    # This value can be constructed from other form elements the user provides so that they do not need to know the
+    # project ID, or to put restrictions in place as to which projects they can access. For example, the value could
+    # be built from namepsace and environment as shown below.
 
-    variables = {
-      namespace   = "global.variables.namespace",
-      environment = "global.variables.environment",
+    # value = "{{namespace}}-{{environment}}"
+
+    # variables = {
+    #   namespace   = "global.variables.namespace",
+    #   environment = "global.variables.environment",
+    # }
+
+    validation_rule {
+      rule          = "isRequired"
+      error_message = "You must provide a Google Cloud Platform project ID to deploy the assets into."
     }
   }
 
