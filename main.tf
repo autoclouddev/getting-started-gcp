@@ -439,6 +439,8 @@ data "autocloud_blueprint_config" "complete" {
       "global.variables.namespace",
       "global.variables.environment",
       "global.variables.name",
+      "kms_key.variables.keyring",
+      "bucket.variables.name",
       "gcp.variables.location",
       "gcp.variables.project_id",
       "gcp.variables.labels",
