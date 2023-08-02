@@ -363,7 +363,7 @@ data "autocloud_blueprint_config" "bucket" {
   ###
   # Show the bucket name
   variable {
-    name         = "bucket.variables.name"
+    name         = "bucket.variables.bucket_name"
     display_name = "Storage Bucket Name"
     type         = "shortText"
     value        = "{{namespace}}-{{environment}}-{{name}}"
@@ -440,7 +440,7 @@ data "autocloud_blueprint_config" "complete" {
       "global.variables.environment",
       "global.variables.name",
       "kms_key.variables.keyring",
-      "bucket.variables.name",
+      "bucket.variables.bucket_name",
       "gcp.variables.location",
       "gcp.variables.project_id",
       "gcp.variables.labels",
